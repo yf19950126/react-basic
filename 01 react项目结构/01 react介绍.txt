@@ -1,0 +1,37 @@
+一、react介绍
+React 起源于 Facebook 的内部项目，因为该公司对市场上所有 JavaScript MVC 框架，都不满意，就决定自己写一套，
+用来架设Instagram 的网站。做出来以后，发现这套东西很好用，就在2013年5月开源了。
+
+二、react特点
+1.声明式设计：React采用声明范式，可以轻松描述应用。
+2.高效：React通过对DOM的模拟，最大限度地减少与DOM的交互。
+3.灵活：React可以与已知的库或框架很好地配合。
+
+三、搭建react环境
+1.全局安装react
+npm install -g create-react-app
+
+2.新建react项目
+create-react-app  项目名
+
+3.cd项目
+cd my-app
+
+4.yarn start/npm start 启动
+
+四、浏览器安装react开发插件
+
+五、react目录结构
+1. node_modules/   依赖项
+2. public/   存放静态资源，提供外部访问
+   2.1. public/index.html  入口文件
+3. src/   源代码目录（开发的代码放在里面）
+   3.1 index.js js入口文件
+   3.2 app.js  项目的根组件
+4. .gitignore   git的忽略文件
+5. package.json  项目配置文件(说明性文件)
+6. README.md  git 项目说明文件
+
+六、react业务调用顺序
+1. public/index.html  入口html
+2. src/index.js  入口js

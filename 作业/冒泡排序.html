@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+<script type="text/javascript">
+	/*
+	 * 3.现冒泡排序,对数组 [5,3,31,35,2] 从大到小进行排序
+	 */
+	var arr = [5,3,31,35,2];
+	
+	//数组的内置方法进行排序
+	/*
+	arr.sort(function(a,b){
+		return a-b;//从小到大
+		return b-a;//从大到小
+	})
+	console.log(arr)
+	*/
+	
+	//冒泡排序   从大到小
+	for(let j = 0;j < arr.length - 1;j++){
+		for (var i = 0; i < arr.length - 1 -j; i++) {
+			if(arr[i] < arr[i+1]){
+				var temp = arr[i];
+				arr[i] = arr[i+1];
+				arr[i+1] = temp;
+			}
+		}
+		//console.log(arr)
+	}
+	console.log(arr)
+	
+	//冒泡排序   从小到大
+	for(let j = 0;j < arr.length - 1;j++){
+		for (var i = 0; i < arr.length - 1 - j; i++) {
+			if(arr[i] > arr[i+1]){
+				var temp = arr[i];
+				arr[i] = arr[i+1];
+				arr[i+1] = temp;
+			}
+		}
+		//console.log(arr)
+	}
+	console.log(arr)
+</script>

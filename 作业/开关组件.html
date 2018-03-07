@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>开关组件</title>
+		<!--引入vue文件-->
+		<script src="vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			{{msg}}
+			<my-switch :checked="lampStatus" @change="change1"></my-switch>
+			<div>
+				<span v-if="lampStatus">灯亮了！！！</span>
+				<span v-else>灯灭了！！！</span>
+			</div>
+			<my-switch :checked="iceboxStatus" @change="change2"></my-switch>
+			<div>
+				<span v-if="iceboxStatus">冰箱开了！！！</span>
+				<span v-else>冰箱关了！！！</span>
+			</div>
+		</div>
+	</body>
+</html>
+<!--定义模板-->
+<script type="text/html" id="my-switch">
+	<div>
+		<template v-if="checked">
+			<button disabled="disabled">开</button>
+			<button @click="toggle(false)">关</button>
+		</template>
+		<template v-else>
+			<button @click="toggle(true)">开</button>
+			<button disabled="disabled">关</button>
+		</template>
+	</div>
+</script>
+<script>
+	//全局注册组件
+	Vue.component("my-switch",{
+		template:'#my-switch',
+		//属性传值
+		props:{
+			checked:{
+				type:Boolean,
+				default:false
+			}
+		},
+		methods:{
+			toggle:function(value){
+				//事件传值，子传父
+				this.$emit("change",value);
+			}
+		}
+	})
+	new Vue({
+		el:"#app",
+		//实例数据
+		data:{
+			msg:'德玛西亚',
+			//灯的状态
+			lampStatus:false,
+			//冰箱状态
+			iceboxStatus:false
+		},
+		//实例方法
+		methods:{
+			//es6方法
+			change1(value){
+				this.lampStatus = value
+			},
+			change2(value){
+				this.iceboxStatus = value
+			}
+		}
+	})
+</script>
